@@ -3,7 +3,7 @@ import {useAuth} from "@frontegg/react";
 import React, { useState, useEffect } from 'react';
 
 function App() {
-    const [cookieValue, setCookieValue] = useState(null);
+    const [setCookieValue] = useState(null);
 
     useEffect(() => {
         // On component mount, read the cookie value
@@ -53,14 +53,12 @@ function App() {
                     <div className="logout-section">
                         <button className="logout-button" onClick={() => logout()}>Logout</button>
                     </div>
-                    <p>Value of 'loginOrigin' cookie: {cookieValue}</p>
                 </div>
 
             ) :
                 <div>
                     <h1>app1.correkt.horse</h1>
                     <button className="login-button" onClick={() => redirectToLogin()}>Login</button>
-                    <p>Value of 'loginOrigin' cookie: {cookieValue}</p>
                 </div>}
         </div>);
 }
