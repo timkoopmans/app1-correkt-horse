@@ -13,21 +13,23 @@ function App() {
     }
 
     return (<div className='App'>
-            {isAuthenticated ? (<div>
+            {isAuthenticated ? (
+                <div>
                     <h1>app1.correkt.horse</h1>
-                    <div>
-                        <img src={user?.profilePictureUrl} alt={user?.name} />
-                        <span>{user?.name}</span>
+                    <div className="profile-section">
+                        <img className="profile-pic" src={user?.profilePictureUrl} alt={user?.name} />
+                        <p className="profile-name">{user?.name}</p>
                     </div>
-                    <div>
-                        <button onClick={() => logout()}>Logout</button>
+                    <div className="logout-section">
+                        <button className="logout-button" onClick={() => logout()}>Logout</button>
                     </div>
                 </div>
 
-            ) : <div>
-                <h1>app1.correkt.horse</h1>
-                <button onClick={() => redirectToLogin()}>Login</button>
-            </div>}
+            ) :
+                <div>
+                    <h1>app1.correkt.horse</h1>
+                    <button className="login-button" onClick={() => redirectToLogin()}>Login</button>
+                </div>}
         </div>);
 }
 
