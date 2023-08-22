@@ -1,6 +1,6 @@
 import './App.css';
 import {useAuth} from "@frontegg/react";
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 
 function App() {
     const [cookieValue, setCookieValue] = useState(null);
@@ -40,26 +40,29 @@ function App() {
 
     const redirectToLogin = () => {
         setCookie("loginOrigin", "https://app1.correkt.horse", 7);
+        console.log(cookieValue);
         window.location.href = `https://auth.correkt.horse?redirectUrl=${window.location}`;
     }
 
     return (<div className='App'>
-        {isAuthenticated ? (<div>
-                <h1>app1.correkt.horse</h1>
-                <div className="profile-section">
-                    <img className="profile-pic" src={user?.profilePictureUrl} alt={user?.name}/>
-                    <p className="profile-name">{user?.name}</p>
+            {isAuthenticated ? (
+                <div>
+                    <h1>app1.correkt.horse</h1>
+                    <div className="profile-section">
+                        <img className="profile-pic" src={user?.profilePictureUrl} alt={user?.name} />
+                        <p className="profile-name">{user?.name}</p>
+                    </div>
+                    <div className="logout-section">
+                        <button className="logout-button" onClick={() => logout()}>Logout</button>
+                    </div>
                 </div>
-                <div className="logout-section">
-                    <button className="logout-button" onClick={() => logout()}>Logout</button>
-                </div>
-            </div>
 
-        ) : <div>
-            <h1>app1.correkt.horse</h1>
-            <button className="login-button" onClick={() => redirectToLogin()}>Login</button>
-        </div>}
-    </div>);
+            ) :
+                <div>
+                    <h1>app1.correkt.horse</h1>
+                    <button className="login-button" onClick={() => redirectToLogin()}>Login</button>
+                </div>}
+        </div>);
 }
 
 export default App;
