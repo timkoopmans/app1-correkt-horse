@@ -38,7 +38,7 @@ function App() {
     }
 
     const redirectToLogin = () => {
-        setCookie("loginOrigin", "app1.correkt.horse", 7);
+        setCookie("loginOrigin", "https://app1.correkt.horse", 7);
         window.location.href = `https://auth.correkt.horse?redirectUrl=${window.location}`;
     }
 
