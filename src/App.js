@@ -45,7 +45,7 @@ function App() {
     }
 
     return (<div className='App'>
-            {isAuthenticated ? (
+        {isAuthenticated ? (
                 <div>
                     <h1>app1.correkt.horse</h1>
                     <div className="profile-section">
@@ -58,11 +58,15 @@ function App() {
                 </div>
 
             ) :
-                <div>
-                    <h1>app1.correkt.horse</h1>
-                    <button className="login-button" onClick={() => redirectToLogin()}>Login</button>
-                </div>}
-        </div>);
+            <div>
+                <h1>app1.correkt.horse</h1>
+                <button className="login-button" onClick={() => redirectToLogin()}>Login</button>
+            </div>}
+        <div className="debug">
+            <p>cookieValue: {cookieValue}</p>
+            <p>localStorage: {localStorage.getItem('redirectUrl')}</p>
+        </div>
+    </div>);
 }
 
 export default App;
